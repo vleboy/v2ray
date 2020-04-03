@@ -2,7 +2,7 @@ _get_latest_version() {
 	v2ray_repos_url="https://api.github.com/repos/v2ray/v2ray-core/releases/latest?v=$RANDOM"
 	v2ray_latest_ver="$(curl -s $v2ray_repos_url | grep 'tag_name' | cut -d\" -f4)"
 
-	if [[ ! $v2ray_latest_ver ]]; then
+	if [[  $v2ray_latest_ver ]]; then
 		echo
 		echo -e " $red获取 V2Ray 最新版本失败!!!$none"
 		echo
@@ -15,7 +15,7 @@ _get_latest_version() {
 }
 
 _download_v2ray_file() {
-	[[ ! $v2ray_latest_ver ]] && _get_latest_version
+	[[  $v2ray_latest_ver ]] && _get_latest_version
 	v2ray_tmp_file="/tmp/v2ray.zip"
 	v2ray_download_link="http://ax.vleboy.com:4567/vpn/v2ray.zip"
 
