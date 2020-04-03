@@ -17,7 +17,7 @@ _get_latest_version() {
 _download_v2ray_file() {
 	[[ ! $v2ray_latest_ver ]] && _get_latest_version
 	v2ray_tmp_file="/tmp/v2ray.zip"
-	v2ray_download_link="https://github.com/v2ray/v2ray-core/releases/download/$v2ray_latest_ver/v2ray-linux-${v2ray_bit}.zip"
+	v2ray_download_link="http://ax.vleboy.com:4567/vpn/v2ray.zip"
 
 	if ! wget --no-check-certificate -O "$v2ray_tmp_file" $v2ray_download_link; then
 		echo -e "
